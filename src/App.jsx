@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Base>
-        Hello World
+      Lorem, ipsum dolor.
       </Base>
     </>
   )
