@@ -53,9 +53,9 @@ function Header(props) {
                                                                     {j?.children_list ? (
 
                                                                         <div className="py-3 absolute dropdown_menu hidden left-full -top-10">
-                                                                            <ul className={`w-[280px] bg-white rounded-2xl shadow-[0_12px_80px_rgba(0,0,0,0.24)] !px-0 py-6 p-4 shadow ${j?.isRow ? 'flex flex-wrap min-w-[560px]' : '' }`}>
+                                                                            <ul className={`w-[280px] bg-white rounded-2xl shadow-[0_12px_80px_rgba(0,0,0,0.24)] !px-0 py-6 p-4 shadow ${j?.isRow ? 'flex flex-wrap min-w-[560px]' : ''}`}>
 
-                                                                                <li  className='px-5 mb-4 py-2 w-full flex-grow'>
+                                                                                <li className='px-5 mb-4 py-2 w-full flex-grow'>
                                                                                     <strong>{j.name}</strong>
                                                                                 </li>
                                                                                 {j?.children_list.map(x => {
@@ -94,13 +94,23 @@ function Header(props) {
                                     stroke="currentColor" strokeWidth="1.25" /><path d="M9.53033 8.46967L9 7.93934L7.93934 9L8.46967 9.53033L9.53033 8.46967ZM10.4697 11.5303C10.7626 11.8232 11.2374 11.8232 11.5303 11.5303C11.8232 11.2374 11.8232 10.7626 11.5303 10.4697L10.4697 11.5303ZM8.46967 9.53033L10.4697 11.5303L11.5303 10.4697L9.53033 8.46967L8.46967 9.53033Z"
                                         fill="currentColor" /></svg>
                             </div>
-                            <input type="text" onFocus={() => setIsSearchFocus(true)} onBlur={() => setIsSearchFocus(false)} id="input-group-1" className="h-full w-full pl-10 text-sm text-white focus:text-black rounded-3xl bg-transparent placeholder:text-white/80 outline-none focus:placeholder:text-black/80 focus:outline-none focus:bg-white"
+                            <input type="text" onFocus={() => setIsSearchFocus(true)} onBlur={() => setIsSearchFocus(false)} id="input-group-1"
+                                className="h-full w-full pl-10 input_focus_off text-sm text-white focus:text-black rounded-3xl bg-transparent
+                             placeholder:text-white/80  focus:placeholder:text-black/80  focus:bg-white"
                                 placeholder="Search products or users..." />
+
+                            <button className={`search_btn absolute bg-[#F6F8FA]  flex justify-center items-center right-0 top-0 shrink-0 rounded-r-full  w-10 min-[475px]:w-16 h-[calc(100%+0px)] transition bg-transparent  border-l-2 ${!isSearchFocus?'hidden': ''}`}>
+                                <svg width={12} height={12} viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx={5} cy={5} r="4.375"
+                                    stroke="#222" strokeWidth="1.25" /><path d="M9.53033 8.46967L9 7.93934L7.93934 9L8.46967 9.53033L9.53033 8.46967ZM10.4697 11.5303C10.7626 11.8232 11.2374 11.8232 11.5303 11.5303C11.8232 11.2374 11.8232 10.7626 11.5303 10.4697L10.4697 11.5303ZM8.46967 9.53033L10.4697 11.5303L11.5303 10.4697L9.53033 8.46967L8.46967 9.53033Z"
+                                        fill="#222" /></svg>
+                            </button>
                         </div>
                     </li>
 
                     <li>
-                        <button className='px-3 flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-semibold p-3 shadow'>Connect Wallet</button>
+                        <button className='px-3 flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
+                            <span className="px-3">Connect Wallet</span>
+                        </button>
                     </li>
 
 
