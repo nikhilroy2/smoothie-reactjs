@@ -67,6 +67,7 @@ export const NavbarList = [
                 id: 3,
                 name: 'DeFi',
                 link: '#',
+                isRow: true,
                 children_list: [
                     {
                         id: 1,
@@ -396,6 +397,7 @@ export const NavbarList = [
                 id: 10,
                 name: 'NFT',
                 link: '#',
+                isRow: true,
                 children_list: [
                     {
                         id: 1,
