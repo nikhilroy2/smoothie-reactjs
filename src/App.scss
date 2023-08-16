@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+// ......................global classes................
+
+.bg-backdrop {
+    --tw-bg-opacity: 1;
+    background-color: rgb(138 17 212/var(--tw-bg-opacity));
+}
