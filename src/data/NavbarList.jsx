@@ -545,11 +545,11 @@ export const NavbarList = [
     {
         id: 3,
         name: 'Awards',
-        link: '#'
+        link: '/awards'
     },
     {
         id: 4,
         name: 'Litepaper',
-        link: '#'
+        link: '/litepaper'
     },
 ]
