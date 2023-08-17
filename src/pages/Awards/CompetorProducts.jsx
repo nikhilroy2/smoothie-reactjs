@@ -86,7 +86,7 @@ function CompetorProducts(props) {
                                             <span className="w-[1.5rem] h-[1.5rem] flex-center">
                                                 <img src={ArrowDoubleUpIcon} alt="img" />
                                             </span>
-                                            <span class="px-3">Upvote</span>
+                                            <span className="px-3">Upvote</span>
                                         </button>
                                     </div>
                                 </li>
