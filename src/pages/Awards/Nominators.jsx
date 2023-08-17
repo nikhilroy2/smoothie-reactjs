@@ -48,7 +48,8 @@ function Nominators(props) {
                             NominatorList.map(v => {
                                 return (
                                     <li key={v.id} className='dropdown_hover relative'>
-                                        <div className="flex items-center gap-2.5 px-6 py-2 interactive-hover">
+
+                                        <Link to={`/users/${v.name}`} className="flex items-center gap-2.5 px-6 py-2 interactive-hover">
 
                                             <div className="relative inline-block min-w-fit rounded-full overflow-hidden  shrink-0 w-[2.75rem] h-[2.75rem]">
                                                 <img src={v.img} className='w-[inherit] h-[inherit] object-cover' alt={v.name} />
@@ -58,7 +59,7 @@ function Nominators(props) {
                                                 <span className="px-2">Follow</span>
                                             </button>
 
-                                        </div>
+                                        </Link>
 
 
                                         <div className='dropdown_menu bg-white bottom-full hidden absolute z-10 '>
@@ -70,7 +71,7 @@ function Nominators(props) {
                                                             {/* header part */}
                                                             <div className="flex items-center justify-between">
 
-                                                                <Link href={`/users/${v.name}`}>
+                                                                <Link to={`/users/${v.name}`}>
                                                                     <div className="relative inline-block min-w-fit rounded-full overflow-hidden w-[2.75rem] h-[2.75rem]">
                                                                         <img src={v.img}
                                                                             className="w-[inherit] h-[inherit] object-cover" /></div>

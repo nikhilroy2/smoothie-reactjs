@@ -50,8 +50,25 @@ body {
     font-weight: 700;
     color: #24292f;
 }
+
 .text-b2 {
     font-size: 14px;
     line-height: 22px;
 }
+
+.interactive-hover:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(246 248 249/var(--tw-bg-opacity));
+}
+
+.text-plum-120 {
+    --tw-text-opacity: 1;
+    color: #9e00ff;
+}
+
+.text-sky-300 {
+    --tw-text-opacity: 1;
+    color: #1da1f2;
+}
+
 // ......................global classes................ End
