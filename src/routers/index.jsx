@@ -8,6 +8,7 @@ import Base from '../layout/Base';
 import Awards from "../pages/Awards/Awards";
 import Apply from "../pages/Apply/Apply";
 import Profile from "../pages/Profile/Profile";
+import MyProducts from "../pages/MyProducts/MyProducts";
 // .................Pages............................End
 
 function MyRoutes() {
@@ -19,6 +20,7 @@ function MyRoutes() {
                     <Route path="/apply" element={<Apply></Apply>}></Route>
                     <Route path="/users/:username" element={<Profile></Profile>}></Route>
                     <Route path="/awards" element={<Awards></Awards>}></Route>
+                    <Route path="/my-products" element={<MyProducts></MyProducts>}></Route>
                 </Routes>
             </Base>
         </BrowserRouter>

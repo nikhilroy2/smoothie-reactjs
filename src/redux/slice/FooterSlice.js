@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const footerSlice = createSlice({
   name: 'isFooter',
   initialState: {
-    value: true,
+    value: false,
   },
   reducers: {
     footerAction: (state, action) => {
