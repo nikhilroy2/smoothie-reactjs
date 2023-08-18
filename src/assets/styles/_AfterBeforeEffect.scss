@@ -1,0 +1,26 @@
+.after_border_bottom {
+    position: relative;
+    &::after {
+        content: '';
+        background-color: rgb(158 0 255);
+        height: .125rem;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+    }
+}
+.after_full_line_border{
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1px;
+        width: 100vw;
+        background: rgba(208,215,222,.6);
+    }
+}
