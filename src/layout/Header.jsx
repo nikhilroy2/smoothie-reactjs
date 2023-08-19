@@ -6,6 +6,7 @@ import Arrow from '../assets/images/icons/arrow.svg';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleAction } from '../redux/slice/navToggleSlice';
+import { walletAction } from '../redux/slice/ConnectWalletSlice';
 import '../assets/styles/_Dropdown.scss';
 
 function Header(props) {
@@ -43,7 +44,7 @@ function Header(props) {
 
                         </button>
 
-                        <button className='px-3 flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
+                        <button onClick={()=> dispatch(walletAction(true))} className='px-3 flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
                             <span className="px-3">Connect</span>
                         </button>
 
@@ -147,7 +148,7 @@ function Header(props) {
                         </li>
 
                         <li className='mx-3 lg:mx-0'>
-                            <button className='px-3 w-full my-3 lg:my-0  flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
+                            <button onClick={()=> dispatch(walletAction(true))} className='px-3 w-full my-3 lg:my-0  flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
                                 <span className="px-3">Connect Wallet </span>
                             </button>
                         </li>

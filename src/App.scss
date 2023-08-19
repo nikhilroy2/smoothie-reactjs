@@ -93,4 +93,14 @@ body {
     font-size: 16px;
     line-height: 24px;
 }
+.bg-foreground-subtle {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255/var(--tw-bg-opacity));
+}
+.text-caption {
+    font-size: 13px;
+    line-height: 18px;
+    color: #57606a;
+}
+
 // ......................global classes................ End
