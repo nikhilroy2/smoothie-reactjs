@@ -101,7 +101,7 @@ function Header(props) {
                                                                                     {j?.children_list.map(x => {
                                                                                         return (
                                                                                             <li key={x.id} className={`dropdown_hover  px-5 text-b2 text-foreground hover:bg-[#EDF0F3]  h-10 hover:cursor-pointer flex items-center justify-between relative ${j?.isRow ? 'w-1/2' : 'w-full'}`}>
-                                                                                                <Link to={x.link} className='border-none bg-transparent w-full text-left flex items-center justify-between h-full'>
+                                                                                                <Link to={`/subcategory/${x.name.replace(/[ ]/g, '-')}`} className='border-none bg-transparent w-full text-left flex items-center justify-between h-full'>
                                                                                                     {x.name}
                                                                                                 </Link>
                                                                                             </li>

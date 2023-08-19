@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { NominatorList } from '../../data/NominatorList';
-
-
+import { walletAction } from '../../redux/slice/ConnectWalletSlice';
+import { useDispatch } from 'react-redux';
 
 
 // icons
@@ -11,16 +11,8 @@ import TwitterIcon from '../../assets/images/icons/twitter.svg';
 import LinkIcon from '../../assets/images/icons/link_icon.svg'
 import PointsIcon from '../../assets/images/icons/points.svg'
 
-
-
-
-
 function Nominators(props) {
-
-
-
-
-
+    const dispatch = useDispatch();
     return (
         <section id='Nominators'>
 
@@ -30,7 +22,7 @@ function Nominators(props) {
                 <div className="flex flex-col border rounded-lg p-6 gap-y-5">
                     <h2 className="text-subtitle font-bold">Don't see a web3 product?</h2>
 
-                    <button className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-foreground text-white not-disabled:hover:brightness-95 font-semibold p-3 !w-full shadow"
+                    <button onClick={()=> dispatch(walletAction(true))} className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-foreground text-white not-disabled:hover:brightness-95 font-semibold p-3 !w-full shadow"
                         id="apply-button" type="button">
                         <div className="px-3">Add Product</div>
                     </button>
