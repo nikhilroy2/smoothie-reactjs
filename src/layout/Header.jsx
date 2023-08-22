@@ -16,6 +16,7 @@ function Header(props) {
 
     const dispatch = useDispatch();
     const isToggle = useSelector(state => state.navToggle.value);
+    const isWalletConnected = useSelector(state => state.metamaskWallet.value);
     return (
         <header id="Header">
             <nav className='bg-backdrop relative'>
@@ -44,7 +45,7 @@ function Header(props) {
 
                         </button>
 
-                        <button onClick={()=> dispatch(walletAction(true))} className='px-3 flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
+                        <button onClick={() => dispatch(walletAction(true))} className='px-3 flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
                             <span className="px-3">Connect</span>
                         </button>
 
@@ -148,9 +149,14 @@ function Header(props) {
                         </li>
 
                         <li className='mx-3 lg:mx-0'>
-                            <button onClick={()=> dispatch(walletAction(true))} className='px-3 w-full my-3 lg:my-0  flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
-                                <span className="px-3">Connect Wallet </span>
-                            </button>
+                            {
+                                isWalletConnected ? '' : (
+                                    <button onClick={() => dispatch(walletAction(true))} className='px-3 w-full my-3 lg:my-0  flex-center whitespace-nowrap rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground not-disabled:hover:brightness-95 font-[600] p-3 shadow'>
+                                        <span className="px-3">Connect Wallet </span>
+                                    </button>
+                                )
+                            }
+
                         </li>
 
 

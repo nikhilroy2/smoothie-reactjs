@@ -1,11 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MetaMaskIcon from '../assets/images/icons/metaMask.svg';
 import WalletConnectIcon from '../assets/images/icons/walletConnect.svg';
 import CoinBaseIcon from '../assets/images/icons/coinbaseWallet.svg';
+
+// redux
 import { useSelector, useDispatch } from 'react-redux';
 import { walletAction } from '../redux/slice/ConnectWalletSlice';
+import { isMetamaskConnected } from '../redux/slice/metaMaskWalletSlice';
+
+
+import { ethers } from 'ethers';
+
+
 function ConnectWallet(props) {
     const dispatch = useDispatch();
+    const [walletAddress, setWalletAddress] = useState('');
+
+    async function requestAccount() {
+        if (window.ethereum) {
+            //console.log('meta working');
+
+            try{
+                const  accounts = await window.ethereum.request({
+                    method: "eth_requestAccounts",
+                });
+                //console.log(accounts)
+                setWalletAddress(accounts[0])
+                dispatch(isMetamaskConnected(true));
+
+                // after connecting metamask
+                dispatch(walletAction(false)) // close modal
+            } catch(error){
+                //console.log("Error account");
+                dispatch(isMetamaskConnected(false));
+            }
+        } else {
+            //console.log('not working')
+        }
+    }
+
+    const [metaDetected, setMetaDetected] = useState(false);
+
+    useEffect(() => {
+        if (window.ethereum) {
+            setMetaDetected(true);
+        } else {
+            setMetaDetected(false);
+        }
+    }, [])
+
+
+    // default
+    async function isWalletConnected(){
+        if(typeof window.ethereum !== 'undefined'){
+            await requestAccount();
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            console.log('provider', provider)
+        }
+    }
+    
     return (
         <div id='ConnectWallet'>
             <div className="fixed z-[5000] inset-0 overflow-y-auto">
@@ -27,7 +81,7 @@ function ConnectWallet(props) {
                             <div className="flex flex-col flex-1 h-full">
 
                                 <div className="space-y-2">
-                                    <button className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-[#afb8c133] hover:brightness-95 text-foreground not-disabled:hover:brightness-95 text-b2 font-medium p-2 w-full ">
+                                    <button onClick={requestAccount} className={`${metaDetected ? '' : 'pointer-events-none'} flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-[#afb8c133] hover:brightness-95 text-foreground not-disabled:hover:brightness-95 text-b2 font-medium p-2 w-full`}>
                                         <div className="px-2 flex-center">
                                             <img className="w-4 h-4 mr-2" src={MetaMaskIcon} alt="Picture of the connector" />
                                             <span className="whitespace-nowrap">MetaMask</span>
@@ -53,7 +107,7 @@ function ConnectWallet(props) {
                                     <p className="text-caption text-center pt-3">This site is protected by reCAPTCHA and the Google&nbsp;<a href="https://policies.google.com/privacy">Privacy Policy</a> and&nbsp;<a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
 
 
-                                    <button onClick={()=> dispatch(walletAction(false))} className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground hover:brightness-95 text-b2 font-medium p-2 w-full justify-center" type="button">
+                                    <button onClick={() => dispatch(walletAction(false))} className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-white text-foreground hover:brightness-95 text-b2 font-medium p-2 w-full justify-center" type="button">
                                         <span className="px-2">Cancel</span>
                                     </button>
                                 </div>

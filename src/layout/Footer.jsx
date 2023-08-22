@@ -23,7 +23,7 @@ function Footer(props) {
                         <Link to="/privacy-policy">Privacy</Link>
                         <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
                     </div>
-                    </div>
+                </div>
             </div>
         </footer>
     );

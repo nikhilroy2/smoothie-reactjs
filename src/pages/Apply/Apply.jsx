@@ -3,6 +3,7 @@ import CheckIcon from '../../assets/images/icons/check_icon.svg';
 import ResourceNIcon from '../../assets/images/icons/resource_n.svg';
 import ResourceLinkIcon from '../../assets/images/icons/resource_link.svg';
 function Apply(props) {
+    
     const videoInfo = [
         {
             id: 1,
