@@ -12,7 +12,7 @@ import PointsIcon from '../../assets/images/icons/points.svg';
 import '../../assets/styles/_AfterBeforeEffect.scss';
 
 import { NominatorList } from '../../data/NominatorList';
-
+import ProfileCompleteRange from '../../components/ProfileCompleteRange';
 function Profile(props) {
 
     const location = useLocation();
@@ -98,24 +98,7 @@ function Profile(props) {
                                 </div>
                             </div>
 
-                            <div className="flex-center gap-x-4 w-full p-6 mt-3 mb-5 border rounded-lg">
-                                <div className="w-full space-y-6">
-                                    <p className="text-b1 font-bold">
-                                        Your profile is 20% complete</p>
-
-                                    <div className="w-full bg-focus-gray-10 rounded-full">
-                                        <div className="h-2 bg-success-foreground rounded-full"
-                                            style={{ width: '20%' }} />
-                                    </div>
-                                </div>
-
-                                <Link className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-foreground text-white not-disabled:hover:brightness-95 font-semibold p-3 w-max"
-                                    to="/onboarding">
-                                    <span className="px-3">Continue</span>
-                                </Link>
-
-
-                            </div>
+                            <ProfileCompleteRange></ProfileCompleteRange>
                         </div>
 
                         {/* item End*/}
