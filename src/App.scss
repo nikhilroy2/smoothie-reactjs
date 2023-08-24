@@ -102,5 +102,8 @@ body {
     line-height: 18px;
     color: #57606a;
 }
+.interactive-border-hover:hover {
+    border-color: hsla(0,0%,100%,.4);
+}
 
 // ......................global classes................ End

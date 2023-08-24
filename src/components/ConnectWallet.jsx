@@ -7,8 +7,7 @@ import CoinBaseIcon from '../assets/images/icons/coinbaseWallet.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { walletAction } from '../redux/slice/ConnectWalletSlice';
 import { isMetamaskConnected } from '../redux/slice/metaMaskWalletSlice';
-
-
+import { isWalletSuccessModal } from '../redux/slice/WalletSuccessSlice';
 import { ethers } from 'ethers';
 
 
@@ -18,7 +17,7 @@ function ConnectWallet(props) {
 
     async function requestAccount() {
         if (window.ethereum) {
-            //console.log('meta working');
+            console.log('meta working');
 
             try{
                 const  accounts = await window.ethereum.request({
@@ -30,6 +29,7 @@ function ConnectWallet(props) {
 
                 // after connecting metamask
                 dispatch(walletAction(false)) // close modal
+                dispatch(isWalletSuccessModal(true)) // success popup modal
             } catch(error){
                 //console.log("Error account");
                 dispatch(isMetamaskConnected(false));
@@ -39,15 +39,13 @@ function ConnectWallet(props) {
         }
     }
 
-    const [metaDetected, setMetaDetected] = useState(false);
+    const [metaDetected, setMetaDetected] = useState(true);
 
     useEffect(() => {
         if (window.ethereum) {
             setMetaDetected(true);
-        } else {
-            setMetaDetected(false);
-        }
-    }, [])
+        } 
+    })
 
 
     // default
