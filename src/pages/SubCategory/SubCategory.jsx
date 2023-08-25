@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import Nominators from '../Awards/Nominators';
 import ProductInfo from '../../components/ProductInfo';
+import { CompletingProductList } from '../../data/CompletingProductList';
+import { useParams } from 'react-router-dom';
 function SubCategory(props) {
-    const [isLargeText, setIsLargeText] = useState(false)
+    const [isLargeText, setIsLargeText] = useState(false);
+    const { category_name } = useParams();
+    const selectedCategory = CompletingProductList[category_name] || [];
+    console.log(selectedCategory)
     return (
         <div id='SubCategory'>
             <div className="h-full bg-backdrop">
@@ -24,7 +29,7 @@ function SubCategory(props) {
                         </header>
 
                         {/* ProductInfo */}
-                        <ProductInfo></ProductInfo>
+                        <ProductInfo productList={selectedCategory}></ProductInfo>
                         {/* ProductInfo End */}
                     </div>
                     {/* item */}

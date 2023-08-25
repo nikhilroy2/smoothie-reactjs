@@ -9,6 +9,8 @@ import ProductImg6 from '../../assets/images/products/b4576e28-1805-446f-b25b-c3
 import BookmarkIcon from '../../assets/images/icons/bookmark.svg';
 import ArrowDoubleUpIcon from '../../assets/images/icons/ArrowDoubleUp.svg';
 
+import InfiniteProducts from './InfiniteProducts';
+
 function CompetorProducts(props) {
 
     const CompetorProductsList = [
@@ -59,7 +61,7 @@ function CompetorProducts(props) {
         <section id='CompetorProducts'>
             <div className="mt-4">
                 <h3 className="text-[14px] text-foreground font-semibold my-8">This week's competing products</h3>
-                <ul className='pb-14'>
+                <ul className='space-y-14 pb-14 border-b'>
 
                     {
 
@@ -97,6 +99,9 @@ function CompetorProducts(props) {
 
                 </ul>
             </div>
+
+            <InfiniteProducts></InfiniteProducts>
+
         </section>
     );
 }
