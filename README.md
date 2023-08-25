@@ -10,3 +10,6 @@ https://smoothie.so/apply
 https://smoothie.so/users/@vineet
 https://smoothie.so/my-products
 https://smoothie.so/subcategory/Crypto-Staking-Platforms 
+
+
+<a href="https://smoothie-reactjs.vercel.app/"> <h1>Live: https://smoothie-reactjs.vercel.app/</h1> </a>
