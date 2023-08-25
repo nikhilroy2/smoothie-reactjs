@@ -13,6 +13,13 @@ import '../../assets/styles/_AfterBeforeEffect.scss';
 
 import { NominatorList } from '../../data/NominatorList';
 import ProfileCompleteRange from '../../components/ProfileCompleteRange';
+
+// tab content components
+import ProfileReviews from './ProfileReviews';
+import ProfileUpvoted from './ProfileUpvoted';
+import ProfileNominated from './ProfileNominated';
+import ProfileSubmitted from './ProfileSubmitted';
+
 function Profile(props) {
 
     const location = useLocation();
@@ -107,15 +114,41 @@ function Profile(props) {
                             <div className="flex w-full relative">
 
                                 <Link className={`${pathItem === 'reviews' ? 'after_border_bottom' : ''} text-b2 text-foreground font-semibold flex-center grow py-1 min-h-[48px] border-b border-b-border-interactive focus:bg-focus-gray-10 focus:outline-0 interactive-hover`}
-                                    to="/users/@vineet?tab=reviews">Reviews<span>&nbsp;(20)</span></Link>
+                                    to={`/users/${username}?tab=reviews`}>Reviews<span>&nbsp;(20)</span></Link>
                                 <Link className={`${pathItem === 'upvoted' ? 'after_border_bottom' : ''} text-b2 text-foreground font-semibold flex-center grow py-1 min-h-[48px] border-b border-b-border-interactive focus:bg-focus-gray-10 focus:outline-0 interactive-hover`}
-                                    to="/users/@vineet?tab=upvoted">Upvoted<span>&nbsp;(146)</span></Link>
+                                    to={`/users/${username}?tab=upvoted`}>Upvoted<span>&nbsp;(146)</span></Link>
                                 <Link className={`${pathItem === 'nominated' ? 'after_border_bottom' : ''} text-b2 text-foreground font-semibold flex-center grow py-1 min-h-[48px] border-b border-b-border-interactive focus:bg-focus-gray-10 focus:outline-0 interactive-hover`}
-                                    to="/users/@vineet?tab=nominated">Nominated<span>&nbsp;(26)</span></Link>
+                                    to={`/users/${username}?tab=nominated`}>Nominated<span>&nbsp;(26)</span></Link>
                                 <Link className={`${pathItem === 'submitted' ? 'after_border_bottom' : ''} text-b2 text-foreground font-semibold flex-center grow py-1 min-h-[48px] border-b border-b-border-interactive focus:bg-focus-gray-10 focus:outline-0 interactive-hover`}
-                                    to="/users/@vineet?tab=submitted">Submitted<span>&nbsp;(0)</span></Link>
+                                    to={`/users/${username}?tab=submitted`}>Submitted<span>&nbsp;(0)</span></Link>
                             </div>
+
+
                         </div>
+
+                        {
+                            pathItem === 'reviews' && (
+                                <ProfileReviews username={username}></ProfileReviews>
+                            )
+                        }
+
+
+                        {
+                            pathItem === 'upvoted' && (
+                                <ProfileUpvoted username={username}></ProfileUpvoted>
+                            )
+                        }
+
+                        {
+                            pathItem === 'nominated' && (
+                                <ProfileNominated username={username}></ProfileNominated>
+                            )
+                        }
+                        {
+                            pathItem === 'submitted' && (
+                                <ProfileSubmitted username={username}></ProfileSubmitted>
+                            )
+                        }
 
                     </div>
                 </div>

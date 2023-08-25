@@ -61,7 +61,7 @@ function CompetorProducts(props) {
         <section id='CompetorProducts'>
             <div className="mt-4">
                 <h3 className="text-[14px] text-foreground font-semibold my-8">This week's competing products</h3>
-                <ul className='space-y-14 pb-14 border-b'>
+                <ul className='space-y-5 border-b'>
 
                     {
 
