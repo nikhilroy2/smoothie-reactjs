@@ -54,7 +54,7 @@ body {
 .text-b2 {
     font-size: 14px;
     line-height: 22px;
-    color:  #57606a;
+    color: #57606a;
 }
 
 .interactive-hover:hover {
@@ -71,39 +71,79 @@ body {
     --tw-text-opacity: 1;
     color: #1da1f2;
 }
+
 .bg-focus-gray-10 {
     --tw-bg-opacity: 1;
     background-color: rgb(237 240 243/var(--tw-bg-opacity));
 }
+
 .bg-success-foreground {
     --tw-bg-opacity: 1;
     background-color: rgb(35 134 54/var(--tw-bg-opacity));
 }
+
 .text-h2 {
     font-size: 21px;
     line-height: 28px;
     font-weight: 600;
     color: #24292f;
 }
+
 .text-foreground-onEmphasis {
     --tw-text-opacity: 1;
     color: rgb(87 96 106/var(--tw-text-opacity));
 }
+
 .text-b1 {
     font-size: 16px;
     line-height: 24px;
 }
+
 .bg-foreground-subtle {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255/var(--tw-bg-opacity));
 }
+
 .text-caption {
     font-size: 13px;
     line-height: 18px;
     color: #57606a;
 }
+
 .interactive-border-hover:hover {
-    border-color: hsla(0,0%,100%,.4);
+    border-color: hsla(0, 0%, 100%, .4);
+}
+
+input.input,
+select.input,
+textarea.input {
+    width: 100%;
+    border-radius: 1.5rem;
+    border-width: 2px;
+    border-color: transparent;
+    background-color: rgba(175, 184, 193, .2);
+    padding: 0.625rem 1.5rem;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .15s;
+    box-shadow: none;
+
+    &:focus {
+        --tw-border-opacity: 1;
+        border-color: rgb(235 31 227/var(--tw-border-opacity));
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        box-shadow: none;
+    }
+}
+
+.text-danger-emphasis {
+    --tw-text-opacity: 1;
+    color: rgb(218 54 51/var(--tw-text-opacity));
+}
+.border-accent-emphasis:hover {
+    --tw-border-opacity: 1;
+    border-color: rgb(235 31 227/var(--tw-border-opacity));
 }
 
 // ......................global classes................ End

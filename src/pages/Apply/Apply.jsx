@@ -2,8 +2,17 @@ import React from 'react';
 import CheckIcon from '../../assets/images/icons/check_icon.svg';
 import ResourceNIcon from '../../assets/images/icons/resource_n.svg';
 import ResourceLinkIcon from '../../assets/images/icons/resource_link.svg';
+
+
+import { useSelector, useDispatch } from 'react-redux';
+
+import { walletAction } from '../../redux/slice/ConnectWalletSlice';
+import ApplyForm from './ApplyForm';
 function Apply(props) {
-    
+    const dispatch = useDispatch();
+    const isWalletConnected = useSelector(state => state.metamaskWallet.value);
+
+
     const videoInfo = [
         {
             id: 1,
@@ -32,15 +41,25 @@ function Apply(props) {
                                     <h2 className="font-medium text-black/80">A discover-to-earn awards platform for web3 products. Users upvote for their favorite web3 products!</h2>
                                 </header>
 
-                                <div className="border rounded-lg py-8 px-12">
-                                    <p className="text-subtitle mb-4 text-center">Connect your wallet to get started</p>
-
-                                    <button className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-foreground text-white not-disabled:hover:brightness-95 font-semibold p-3 w-full"
-                                        id="connect-wallet-button" type="button"><div className="px-3">Connect Wallet</div></button>
 
 
-                                </div>
 
+                                {
+                                    isWalletConnected ? (
+                                        <>
+                                            <ApplyForm></ApplyForm>
+                                        </>
+                                    )
+                                        : (
+                                            <div className="border rounded-lg py-8 px-12">
+                                                <p className="text-subtitle mb-4 text-center">Connect your wallet to get started</p>
+                                                <button onClick={() => dispatch(walletAction(true))} className="flex-center rounded-[40px] h-fit disabled:opacity-80 disabled:cursor-default transition-all bg-foreground text-white not-disabled:hover:brightness-95 font-semibold p-3 w-full"
+                                                    id="connect-wallet-button" type="button">
+                                                    <span className="px-3">Connect Wallet</span>
+                                                </button>
+                                            </div>
+                                        )
+                                }
 
                             </div>
 
